@@ -1,6 +1,6 @@
-# TPC2: Filter Duplicate Lines in a Text File
+# TPC2: Filter Out Duplicate Lines
 
-This Python script filters out duplicate lines from a text file, helping to clean up documents by simply removing or even commenting out repeated lines. It also provides optional handling for empty lines. This tool is built with `jjcli`, a lightweight command-line interface library.
+This Python script filters out duplicate lines from a text file, helping to clean up documents by simply removing or commenting out repeated lines. It also provides optional handling for empty lines. This tool is built with `jjcli`, a lightweight command-line interface library.
 
 ## Installation
 
