@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-Remove repeated instances from a text file.
+Filter duplicate lines from a text file.
 
 Usage: ./filter_duplicate_lines.py [OPTIONS] FILE
 
 Options:
-  -e      Also remove repeated empty lines.
-  -c      Comment out repeated lines instead of removing them.
+  default (no options)    Removes all duplicate non-empty lines
+  -e                      Also removes duplicate empty lines
+  -c                      Comments out duplicate lines instead of removing them outright
 """
 
 from jjcli import *
 
-def remove_repeated_instances(lines, comment=False, remove_empty=False):
+def filter_duplicate_lines(lines, comment=False, remove_empty=False):
     seen = set()
     result = []
     
@@ -24,7 +25,7 @@ def remove_repeated_instances(lines, comment=False, remove_empty=False):
             if stripped_line not in seen:
                     result.append(line)
                     seen.add(stripped_line)
-            elif comment:   # option to comment out repeated lines
+            elif comment:   # option to comment out duplicate lines
                 result.append(f"# {line}")
 
     return result
@@ -48,7 +49,7 @@ def main():
     with open(input_file, 'r') as f:
         lines = f.readlines()
 
-    processed_lines = remove_repeated_instances(
+    processed_lines = filter_duplicate_lines(
         lines,
         comment='-c' in opts, 
         remove_empty='-e' in opts

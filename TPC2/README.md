@@ -29,9 +29,9 @@ Run the script with the following command:
 
 ### Options
 
-- Default (no options): Removes all duplicate non-empty lines
-- `-e`: Also removes duplicate empty lines.
-- `-c`: Comments out duplicate lines instead of removing them.
+- default (no options): Removes all duplicate non-empty lines;
+- `-e`: Also removes duplicate empty lines;
+- `-c`: Comments out duplicate lines instead of removing them outright.
 
 #### Help
 
