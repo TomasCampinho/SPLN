@@ -23,7 +23,7 @@ STOPWORDS = set([
     "a", "o", "as", "os", "um", "uma", "uns", "umas", "de", "do", "da", "em","se"
 ])
 
-def lemmatize_and_count(txt, exclude_stopwords=False):
+def lemmatize(txt, exclude_stopwords=False):
     doc = nlp(txt)
     lemmatized_tokens = []
     stopwords_found = set()
@@ -65,7 +65,7 @@ def main():
     all_stopwords_found = set() 
     
     for txt in cl.text():
-        lemmatized_tokens, stopwords_found = lemmatize_and_count(txt, exclude_stopwords)
+        lemmatized_tokens, stopwords_found = lemmatize(txt, exclude_stopwords)
         print("Lemmatized:", lemmatized_tokens)
         
         all_tokens.extend(lemmatized_tokens)
