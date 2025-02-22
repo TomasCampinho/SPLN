@@ -2,8 +2,7 @@
 
 ## Features
 
-- Tokenizes input text into words and punctuation.
-- Lemmatizes tokens to their base forms using the spaCy library.
+- Lemmatizes tokens to their base (pt-pt) forms using the spaCy library.
 - Counts the frequency of each token.
 - Optionally excludes common stopwords from the analysis.
 
@@ -35,25 +34,33 @@ python3 ftk [OPTIONS]
 - `-s`: Exclude stopwords from the analysis.
 - `--help`: Show the help message with usage instructions.
 
-### Example
+## Examples
 
-To analyze a text and exclude stopwords:
+To analyze a text (default):
 
 ```bash
-echo "A casa azul à beira-mar é o meu sítio favorito!! Agora que penso, não me recordo se a casa é azul ou vermelha..." | python3 ftk -s
+echo "pensa-se em vice-versa. Sim, em vice-versa." | python3 ftk
 ```
 
 ```bash
-Tokens: ['casa', 'azul', 'à', 'é', 'meu', 'sítio', 'favorito', 'Agora', 'penso', 'não', 'me', 'recordo', 'casa', 'é', 'azul', 'vermelha']
+Original tokens: ['pensa-se', 'em', 'vice-versa', '.', 'sim', ',', 'em', 'vice-versa', '.', '\n']
+Lemmatized: ['pensar', 'se', 'em', 'vice-versa', 'sim', 'em', 'vice-versa']
 
-Lemmatized: ['casa', 'azul', 'ser', 'meu', 'sítio', 'favorito', 'agora', 'pensar', 'não', 'eu', 'recordar', 'casa', 'ser', 'azul', 'vermelho']
+/// Token Count ///
+pensar: 1, se: 1, em: 2, vice-versa: 2, sim: 1
+```
 
-Stopwords found: que, a, ou, o, se
+To also exclude stopwords:
+
+```bash
+echo "pensa-se em vice-versa. Sim, em vice-versa." | python3 ftk -s
 ```
 
 ```bash
-### Token Count ###
-casa: 2, azul: 2, ser: 2, meu: 1, sítio: 1, favorito: 1, agora: 1, pensar: 1, não: 1, eu: 1, recordar: 1, vermelho: 1
+Original tokens: ['pensa-se', 'em', 'vice-versa', '.', 'sim', ',', 'em', 'vice-versa', '.', '\n']
+Lemmatized: ['pensar', 'vice-versa', 'sim', 'vice-versa']
+Stopwords found: em, se
+
+/// Token Count ///
+pensar: 1, vice-versa: 2, sim: 1
 ```
-
-
