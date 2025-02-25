@@ -50,6 +50,13 @@ def lemmatize(txt, exclude_stopwords=False):
 def counter(tokens):
     return Counter(tokens)
 
+def absolute_frequency(counter):
+    return dict(counter)
+
+def relative_frequency(counter):
+    total_count = sum(counter.values())
+    return {token: count / total_count for token, count in counter.items()}
+
 def main():
     if "--help" in sys.argv:
         print(__doc__)
@@ -76,6 +83,13 @@ def main():
 
     c = counter(all_tokens)
 
-    print("\n/// Token Count ///")
-    token_counts = ', '.join(f"{token}: {count}" for token, count in c.items())
-    print(token_counts)
+    abs_freq = absolute_frequency(c)
+    rel_freq = relative_frequency(c)
+
+    print("\n/// Absolute Frequency ///")
+    abs_freq_str = ', '.join(f"{token}: {count}" for token, count in abs_freq.items())
+    print(abs_freq_str)
+
+    print("\n/// Relative Frequency ///")
+    rel_freq_str = ', '.join(f"{token}: {freq:.4f}" for token, freq in rel_freq.items())
+    print(rel_freq_str)
