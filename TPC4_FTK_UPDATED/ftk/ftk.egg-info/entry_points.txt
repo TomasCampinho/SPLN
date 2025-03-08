@@ -1,0 +1,3 @@
+[console_scripts]
+ftk-occ = ftk.base:main
+ftk-ratio = ftk.ratio:main

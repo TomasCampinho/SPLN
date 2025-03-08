@@ -1,0 +1,11 @@
+[project]
+name = "ftk"
+version = "0.1.0"
+authors = [{ name = "tomas", email = "pg57742@uminho.pt" }]
+description = ""
+license = {text = "MIT"}
+dependencies = ["jjcli", "spaCy"]
+
+[project.scripts]
+ftk-occ = "ftk.base:main"
+ftk-ratio = "ftk.ratio:main"
